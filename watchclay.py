@@ -1,4 +1,5 @@
 # Watches Claymore mining status
+# Copyright 2017 Larry Lang
 # If rig becomes unresponsive, mPower power cycle
 # If rig overheats, mPower power off
 
