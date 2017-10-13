@@ -70,7 +70,7 @@ class pstyle: # print with ANSI style and color codes
 def sendupdate ( subject, body ):
     # email updates via sendmail
     body = re.sub('\x1b.*?m', '', body) #strip ANSI style and color codes
-    msg = MIMEText(body+REFERENCE)
+    msg = MIMEText(body+"\n"+REFERENCE)
     msg["From"] = SENDER
     msg["To"]   = RECIPIENTS
     msg["Subject"] = subject
