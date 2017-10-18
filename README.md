@@ -42,16 +42,22 @@ Configuration
 Edit the watchclay.conf file to match the configuration to your environment and requriements.
 
 `mpower_ip` The IP address or hostname of your mPower strip.
+
 `mpower_username` and `mpower_password` The username and password for your mPower strip. The manufacturer's defaults are `ubnt` and `ubnt`.
-=ubnt
-mpower_password=ubnt
-mpower_outlet=1
-[claymore]
-claymore_ip=192.168.1.50
-claymore_port=3333
-[limits]
-hash_floor=100    ; Mh/s, rig total
-reject_ceiling=20 ; share rejects by mining pool
+
+`mpower_outlet` The mPower outlet to be turned off and on for a power cycle reset. If other outlets on the strip, their current draw will be included in the amps reported, but they will not be power cycled.
+
+`claymore_ip` The IP address of your Claymore mining rig.
+
+`claymore_port` The TCP port of for Claymore reporting. The default is 3333.
+
+`hash_floor` The minimum acceptable hashrate for the total mining rig, in Mh/s. A typical starting point for AMD RX570/580 is 20 multiplied by the number of GPUs. Catches a floundering GPU when Claymore hasn't remedied.
+
+`reject_ceiling` The maximum acceptable number of shares rejected by the mining pool. Malformed shares can be a undesirable side-effect of overclocking.
+
+`temp_ceiling` The maximum acceptable temperature for a GPU, in degrees Celsius. Unlike the other limits, exceeding the temperature ceiling results in immediate shutdown to avoid permanent damage.
+
+=20 ; share rejects by mining pool
 temp_ceiling=80   ; degrees Celsius, hottest GPU
 [timers]
 check_time=10     ; seconds between status checks
