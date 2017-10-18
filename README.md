@@ -29,9 +29,48 @@ Typical launch command:
 
 `python -u watchclay.py watchclay.conf >watchclay.log 2>&1 &`
 
-The -u option prevents output buffer delay. Functioning email service is expected at /usr/sbin/sendmail.
+The -u option prevents output buffer delay.
 
-watchclay has been tested with Claymore versions 10.0, 9.8, and 9.7. The software is written in Python, and has been tested with Python 2.7.10 on MacOS Sierra and with Python 2.7.12 on Ubuntu 16.04. It must run somewhere besides the mining rig (otherwise the power cycle becomes suicidal). For instance, a small instance on Amazon Web Services with VPN access to the rig and mPower strip works well.
+If no configuration file is explicitly named, watchclay looks for the default watchclay.conf (see configuration file details below).
+
+Functioning email service is expected at /usr/sbin/sendmail.
+
+watchclay has been tested with Claymore miner versions 10.0, 9.8, and 9.7. The software is written in Python, and has been tested with Python 2.7.10 on MacOS Sierra and with Python 2.7.12 on Ubuntu 16.04. It must run somewhere besides the mining rig, as otherwise the power cycle becomes suicidal. For instance, a small instance on Amazon Web Services with VPN access to the rig and mPower strip works well.
+
+Configuration
+--------
+Edit the watchclay.conf file to match the configuration to your environment and requriements.
+
+`mpower_ip` The IP address or hostname of your mPower strip.
+`mpower_username` and `mpower_password` The username and password for your mPower strip. The manufacturer's defaults are `ubnt` and `ubnt`.
+=ubnt
+mpower_password=ubnt
+mpower_outlet=1
+[claymore]
+claymore_ip=192.168.1.50
+claymore_port=3333
+[limits]
+hash_floor=100    ; Mh/s, rig total
+reject_ceiling=20 ; share rejects by mining pool
+temp_ceiling=80   ; degrees Celsius, hottest GPU
+[timers]
+check_time=10     ; seconds between status checks
+max_recheck=12    ; maximum recheck attempts before rig reset
+# check_time * max_recheck must be greater than Claymore reboot time to avoid endless power cycles
+cycle_time=30     ; seconds for power cycle pause
+wait_time=10      ; seconds for mPower and Claymore API responses
+update_time=3600  ; seconds between normal email updates
+[email]
+sender=watchclay@yourdomain.com
+recipients=youremail@yourdomain.com
+# reference text included in email body, indent for multi-line string
+reference =
+For Ethereum mining pool activity:
+https://ethermine.org/miners/0x<youraccount>
+For Ethereum paid balance:
+https://etherscan.io/address/0x<youraccount>
+Happy mining!
+
 
 Feedback
 --------
