@@ -1,6 +1,6 @@
 watchclay
 =========
-Watches a [Claymore Ethereum mining](https://github.com/nanopool/Claymore-Dual-Miner) rig for issues, and as needed, resets the rig by power cycling an outlet on a [Ubiquiti mPower](https://www.ubnt.com/mfi/mpower/) strip.
+Watches a [Claymore Ethereum mining](https://github.com/nanopool/Claymore-Dual-Miner) rig for issues, and as needed, resets the rig by power cycling an outlet on a [Ubiquiti mPower](https://www.ubnt.com/mfi/mpower/) strip. Also summarizes useful Claymore heatlh data.
 
 ![watchclay schematic](https://raw.githubusercontent.com/llang629/watchclay/master/images/watchclay_schematic.png)
 
@@ -49,15 +49,21 @@ Edit the watchclay.conf file to match the configuration to your environment and 
 
 `mpower_outlet` The mPower outlet to be turned off and on for a power-cycle reset. If other outlets on the strip are in use, their current draw will be included in the amps reported, but they will not be power cycled.
 
+### Claymore
+
 `claymore_ip` The IP address of your Claymore mining rig.
 
 `claymore_port` The TCP port for Claymore reporting. The default is **3333**.
+
+### Limits
 
 `hash_floor` The minimum acceptable hashrate in Mh/s for the total mining rig. A typical starting point for AMD RX570/580 is **20 Mh/s multiplied by the number of GPUs**. Catches a floundering GPU when Claymore can't remedy.
 
 `reject_ceiling` The maximum acceptable number of shares rejected by the mining pool. Malformed shares can be an undesirable side-effect of overclocking.
 
 `temp_ceiling` The maximum acceptable temperature for any GPU, in degrees Celsius. Unlike the other limits, exceeding the temperature ceiling results in immediate power shut down to avoid permanent damage.
+
+### Timers
 
 `check_time` Seconds between Claymore mining rig status checks. Suggested value is **10 seconds**.
 
@@ -67,18 +73,15 @@ Edit the watchclay.conf file to match the configuration to your environment and 
 
 `wait_time` Seconds to wait before an API call to mPower or Claymore times out with no response. Suggested value is **10 seconds**.
 
-update_time=3600  ; seconds between normal email updates
-[email]
-sender=watchclay@yourdomain.com
-recipients=youremail@yourdomain.com
-# reference text included in email body, indent for multi-line string
-reference =
-For Ethereum mining pool activity:
-https://ethermine.org/miners/0x<youraccount>
-For Ethereum paid balance:
-https://etherscan.io/address/0x<youraccount>
-Happy mining!
+`update_time` Seconds between email updates during normal operation. Suggested value is **3600 seconds** for hourly updates.
 
+### Email
+
+`sender` Email address to send updates from watchclay.
+
+`recipients` One or more email addresses to receive updates from watchclay.
+
+`reference` Text to include in email body for your reference. For example, you could include the URLs for your mining pool dashboard and Ethereum account balance, for easy reference. Indent subsequent lines to include multiple lines.
 
 Feedback
 --------
@@ -88,6 +91,7 @@ If watchclay helped you mine more efficiently, tips are always welcome! :moneyba
 
 Ether `0x61a7d5222cbbC4c86AF8f26954D4BA2a8983DBC9`
 
+Happy mining!
 
 ----------
 Copyright 2017 Larry Lang
