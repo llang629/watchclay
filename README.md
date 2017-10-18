@@ -41,6 +41,8 @@ Configuration
 --------
 Edit the watchclay.conf file to match the configuration to your environment and requriements.
 
+###mPower
+
 `mpower_ip` The IP address or hostname of your mPower strip.
 
 `mpower_username` and `mpower_password` The username and password for your mPower strip. The manufacturer's defaults are **ubnt** and **ubnt**.
@@ -53,17 +55,18 @@ Edit the watchclay.conf file to match the configuration to your environment and 
 
 `hash_floor` The minimum acceptable hashrate in Mh/s for the total mining rig. A typical starting point for AMD RX570/580 is **20 Mh/s multiplied by the number of GPUs**. Catches a floundering GPU when Claymore can't remedy.
 
-`reject_ceiling` The maximum acceptable number of shares rejected by the mining pool. Malformed shares can be a undesirable side-effect of overclocking.
+`reject_ceiling` The maximum acceptable number of shares rejected by the mining pool. Malformed shares can be an undesirable side-effect of overclocking.
 
-`temp_ceiling` The maximum acceptable temperature for a GPU, in degrees Celsius. Unlike the other limits, exceeding the temperature ceiling results in immediate shutdown to avoid permanent damage.
+`temp_ceiling` The maximum acceptable temperature for any GPU, in degrees Celsius. Unlike the other limits, exceeding the temperature ceiling results in immediate power shut down to avoid permanent damage.
 
 `check_time` Seconds between Claymore mining rig status checks. Suggested value is **10 seconds**.
 
-`max_recheck` Maximum rechecks allowed when an issue arises before the rig is reset by power cycle. Too few rechecks results in hair-trigger resets, when waiting would have allowed the issue to resolve. Also check_time multipled by max_rechecks must be long enough to allow the rig to reboot and Claymore to restart, or else watchclay will cause an endless cycle of resets. Suggested value is **12 rechecks**, which only resets the rig after about two minutes of an issue persisting.
+`max_recheck` Maximum rechecks allowed when an issue arises before the rig is reset by power cycle. Too few rechecks results in hair-trigger resets, when waiting would have allowed the issue to resolve itself. Also, check_time multipled by max_recheck must be long enough to allow the rig to reboot and Claymore to restart, or else watchclay will cause an endless loop of resets. Suggested value is **12 rechecks**, which resets the rig after about two minutes of an issue persisting.
 
+`cycle_time` Seconds to pause between power off and power on during a reset. Allows the power supply capacitors to discharge for a clean restart. Suggested value is **30 seconds**.
 
-cycle_time=30     ; seconds for power cycle pause
-wait_time=10      ; seconds for mPower and Claymore API responses
+`wait_time` Seconds to wait before an API call to mPower or Claymore times out with no response. Suggested value is **10 seconds**.
+
 update_time=3600  ; seconds between normal email updates
 [email]
 sender=watchclay@yourdomain.com
