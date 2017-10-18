@@ -25,10 +25,12 @@ A high-level summary of Claymore rig health can be monitored using tail -f on a 
 
 Feedback
 --------
-Feedback welcome about bugs or feature requests.
-If watchclay helped you mine more efficiently, tips are also welcome!
+Feedback welcome about bugs or feature requests, via the [Issues tab](https://github.com/llang629/watchclay/issues).
+
+If watchclay helped you mine more efficiently, tips are also welcome! :moneybag: :beer: :smile:
+
 Ether `0x61a7d5222cbbC4c86AF8f26954D4BA2a8983DBC9`
-:moneybag: :beer: :smile:
+
 
 ----------
 Copyright 2017 Larry Lang
