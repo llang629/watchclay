@@ -1,6 +1,8 @@
 watchclay
 =========
 Watches a [Claymore Ethereum mining](https://github.com/nanopool/Claymore-Dual-Miner) rig for issues, and as needed, resets the rig by power cycling an outlet on a [Ubiquiti mPower](https://www.ubnt.com/mfi/mpower/) strip.
+![watchclay schematic](https://raw.githubusercontent.com/llang629/watchclay/master/images/watchclay_schematic.png)
+
 Purpose
 -------
 Sometimes a Claymore Ethereum mining rig can become unstable or unresponsive, particularly when optimizing GPU performance by overclocking and undervolting. If the inactivity goes unnoticed, or if a person can't get immediate physical access to cycle the power, the resulting idleness wastes potential mining capacity.
@@ -17,6 +19,7 @@ For most of these issues, watchclay rechecks a configurable number of times, and
 Email updates are sent whenever an issue persists and the rig is power cycled, and again when the rig returns to normal. An email update is also sent periodically to indicate normal operation.
 
 Claymore rig health can be monitored as a high-level summary by using tail -f to monitor a logfile of watchclay output.
+![watchclay tail -f output](https://raw.githubusercontent.com/llang629/watchclay/master/images/watchclay_tailf.png)
 
 Feedback
 --------
@@ -26,4 +29,3 @@ If watchclay helped you mine more efficiently, tips are also welcome!
 
 ----------
 Copyright 2017 Larry Lang
-
