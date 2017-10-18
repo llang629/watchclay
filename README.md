@@ -41,7 +41,7 @@ Configuration
 --------
 Edit the watchclay.conf file to match the configuration to your environment and requriements.
 
-###mPower
+### mPower
 
 `mpower_ip` The IP address or hostname of your mPower strip.
 
@@ -63,7 +63,7 @@ Edit the watchclay.conf file to match the configuration to your environment and 
 
 `max_recheck` Maximum rechecks allowed when an issue arises before the rig is reset by power cycle. Too few rechecks results in hair-trigger resets, when waiting would have allowed the issue to resolve itself. Also, check_time multipled by max_recheck must be long enough to allow the rig to reboot and Claymore to restart, or else watchclay will cause an endless loop of resets. Suggested value is **12 rechecks**, which resets the rig after about two minutes of an issue persisting.
 
-`cycle_time` Seconds to pause between power off and power on during a reset. Allows the power supply capacitors to discharge for a clean restart. Suggested value is **30 seconds**.
+`cycle_time` Seconds to pause during a reset between power off and power on. Allows the power supply capacitors to discharge for a clean restart. Suggested value is **30 seconds**.
 
 `wait_time` Seconds to wait before an API call to mPower or Claymore times out with no response. Suggested value is **10 seconds**.
 
