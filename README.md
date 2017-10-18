@@ -1,6 +1,6 @@
 watchclay
 =========
-Watches a [Claymore Ethereum mining](https://github.com/nanopool/Claymore-Dual-Miner) rig for issues, and as needed, resets the rig by power cycling an outlet on a [Ubiquiti mPower](https://www.ubnt.com/mfi/mpower/) strip. Also summarizes useful Claymore heatlh data.
+Watches a [Claymore Ethereum mining](https://github.com/nanopool/Claymore-Dual-Miner) rig for issues, and as needed, resets the rig by power cycling an outlet on a [Ubiquiti mPower](https://www.ubnt.com/mfi/mpower/) strip. Also summarizes useful Claymore health data.
 
 ![watchclay schematic](https://raw.githubusercontent.com/llang629/watchclay/master/images/watchclay_schematic.png)
 
@@ -15,7 +15,7 @@ This watchclay software watches Claymore via its remote management port (default
 - The mining pool rejects submitted shares.
 - The temperature of one or more GPUs exceeds some maximum amount.
 
-For most of these issues, watchclay rechecks a configurable number of times, and if the issues persist, it power cycles the designated outlet on the mPower strip to reset the rig and return Claymore to mining. In case of GPU overheating, watchclay immediately powers down the designated outlet to prevent permanent damage.
+For most of these, watchclay rechecks a configurable number of times, and if the issue persists, it power cycles the designated outlet on the mPower strip to reset the rig and return Claymore to mining. In case of GPU overheating, watchclay immediately powers down the designated outlet to prevent permanent damage.
 
 Email updates are sent whenever an issue persists and the rig is power cycled, and again when the rig returns to normal. An email update is also sent periodically to indicate normal operation.
 
@@ -31,11 +31,11 @@ Typical launch command:
 
 The -u option prevents output buffer delay.
 
-If no configuration file is explicitly named, watchclay looks for the default watchclay.conf (see configuration file details below).
+If no configuration file is explicitly named, watchclay looks for the default file watchclay.conf (configuration details below).
 
 Functioning email service is expected at /usr/sbin/sendmail.
 
-watchclay has been tested with Claymore miner versions 10.0, 9.8, and 9.7. The software is written in Python, and has been tested with Python 2.7.10 on MacOS Sierra and with Python 2.7.12 on Ubuntu 16.04. It must run somewhere besides the mining rig, as otherwise the power cycle becomes suicidal. For instance, a small instance on Amazon Web Services with VPN access to the rig and mPower strip works well.
+watchclay has been tested with Claymore miner versions 10.0, 9.8, and 9.7. The software is written in Python, and has been tested with Python 2.7.10 on MacOS Sierra and with Python 2.7.12 on Ubuntu 16.04. It must run somewhere besides the mining rig; otherwise the power cycle becomes suicidal. For instance, a small instance on Amazon Web Services with VPN access to the rig and mPower strip works well.
 
 Configuration
 --------
@@ -85,7 +85,7 @@ Edit the watchclay.conf file to match the configuration to your environment and 
 
 Feedback
 --------
-Feedback welcome about bugs or feature requests, via the [Issues tab](https://github.com/llang629/watchclay/issues).
+Feedback welcome about bugs or feature requests, via the [Issues](https://github.com/llang629/watchclay/issues) tab.
 
 If watchclay helped you mine more efficiently, tips are always welcome! :moneybag: :beer: :smile:
 
