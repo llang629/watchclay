@@ -23,6 +23,14 @@ A high-level summary of Claymore rig health can be monitored using tail -f on a 
 
 ![watchclay tail -f output](https://raw.githubusercontent.com/llang629/watchclay/master/images/watchclay_tailf.png)
 
+Requirements and Compatibility
+--------
+watchclay is written in Python, and has been tested on MacOS Sierra with Python 2.7.10 and Ubuntu 16.04 with Python 2.7.12. It must run somewhere besides the mining rig (otherwise the power cycle becomes suicidal). For instance, a small instance on Amazon Web Services with VPN access to the rig works well.
+
+Typical launch command:
+`python -u watchclay.py watchclay.conf >watchclay.log 2>&1 &`
+(The -u option prevents output buffer delay.)
+
 Feedback
 --------
 Feedback welcome about bugs or feature requests, via the [Issues tab](https://github.com/llang629/watchclay/issues).
