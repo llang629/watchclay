@@ -49,9 +49,9 @@ Edit the watchclay.conf file to match the configuration to your environment and 
 
 `claymore_ip` The IP address of your Claymore mining rig.
 
-`claymore_port` The TCP port of for Claymore reporting. The default is **3333**.
+`claymore_port` The TCP port for Claymore reporting. The default is **3333**.
 
-`hash_floor` The minimum acceptable hashrate for the total mining rig, in Mh/s. A typical starting point for AMD RX570/580 is 20 multiplied by the number of GPUs. Catches a floundering GPU when Claymore hasn't remedied.
+`hash_floor` The minimum acceptable hashrate in Mh/s for the total mining rig. A typical starting point for AMD RX570/580 is **20 Mh/s multiplied by the number of GPUs**. Catches a floundering GPU when Claymore can't remedy.
 
 `reject_ceiling` The maximum acceptable number of shares rejected by the mining pool. Malformed shares can be a undesirable side-effect of overclocking.
 
