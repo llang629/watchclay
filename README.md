@@ -19,7 +19,7 @@ For most of these issues, watchclay rechecks a configurable number of times, and
 
 Email updates are sent whenever an issue persists and the rig is power cycled, and again when the rig returns to normal. An email update is also sent periodically to indicate normal operation.
 
-Claymore rig health can be monitored as a high-level summary by using tail -f to monitor a logfile of watchclay output.
+A high-level summary of Claymore rig health can be monitored using tail -f on a logfile of watchclay output. The summary includes overall hashrate, slowest GPU, shares accepted and rejected by the mining pool, the temperature of the hottest GPU, and total amps drawn. (Rig power consumption in watts equals current in amps multiplied by line voltage.)
 
 ![watchclay tail -f output](https://raw.githubusercontent.com/llang629/watchclay/master/images/watchclay_tailf.png)
 
@@ -27,7 +27,8 @@ Feedback
 --------
 Feedback welcome about bugs or feature requests.
 If watchclay helped you mine more efficiently, tips are also welcome!
-<0x61a7d5222cbbC4c86AF8f26954D4BA2a8983DBC9>
+Ether `0x61a7d5222cbbC4c86AF8f26954D4BA2a8983DBC9`
+:moneybag: :beer: :smile:
 
 ----------
 Copyright 2017 Larry Lang
