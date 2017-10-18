@@ -45,7 +45,7 @@ Edit the watchclay.conf file to match the configuration to your environment and 
 
 `mpower_username` and `mpower_password` The username and password for your mPower strip. The manufacturer's defaults are `ubnt` and `ubnt`.
 
-`mpower_outlet` The mPower outlet to be turned off and on for a power cycle reset. If other outlets on the strip, their current draw will be included in the amps reported, but they will not be power cycled.
+`mpower_outlet` The mPower outlet to be turned off and on for a power-cycle reset. If other outlets on the strip, their current draw will be included in the amps reported, but they will not be power cycled.
 
 `claymore_ip` The IP address of your Claymore mining rig.
 
@@ -57,12 +57,11 @@ Edit the watchclay.conf file to match the configuration to your environment and 
 
 `temp_ceiling` The maximum acceptable temperature for a GPU, in degrees Celsius. Unlike the other limits, exceeding the temperature ceiling results in immediate shutdown to avoid permanent damage.
 
-=20 ; share rejects by mining pool
-temp_ceiling=80   ; degrees Celsius, hottest GPU
-[timers]
-check_time=10     ; seconds between status checks
-max_recheck=12    ; maximum recheck attempts before rig reset
-# check_time * max_recheck must be greater than Claymore reboot time to avoid endless power cycles
+`check_time` Seconds between Claymore mining rig status checks. Suggested value is **10 seconds**.
+
+`max_recheck` Maximum rechecks allowed when an issue arises before the rig is reset by power cycle. Too few rechecks results in hair-trigger resets, when waiting would have allowed the issue to resolve. Also check_time multipled by max_rechecks must be long enough to allow the rig to reboot and Claymore to restart, or else watchclay will cause an endless cycle of resets. Suggested value is **12 rechecks**, which only resets the rig after about two minutes of an issue persisting.
+
+
 cycle_time=30     ; seconds for power cycle pause
 wait_time=10      ; seconds for mPower and Claymore API responses
 update_time=3600  ; seconds between normal email updates
