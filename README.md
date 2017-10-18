@@ -43,7 +43,7 @@ Edit the watchclay.conf file to match the configuration to your environment and 
 
 `mpower_ip` The IP address or hostname of your mPower strip.
 
-`mpower_username` and `mpower_password` The username and password for your mPower strip. The manufacturer's defaults are **ubnt** and **ubn**`.
+`mpower_username` and `mpower_password` The username and password for your mPower strip. The manufacturer's defaults are **ubnt** and **ubnt**.
 
 `mpower_outlet` The mPower outlet to be turned off and on for a power-cycle reset. If other outlets on the strip are in use, their current draw will be included in the amps reported, but they will not be power cycled.
 
