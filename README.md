@@ -35,7 +35,7 @@ If no configuration file is explicitly named, watchclay looks for the default fi
 
 Functioning email service is expected at /usr/sbin/sendmail.
 
-watchclay has been tested with Claymore miner versions 10.0, 9.8, and 9.7. The software is written in Python, and has been tested with Python 2.7.10 on MacOS Sierra and with Python 2.7.12 on Ubuntu 16.04. It must run somewhere besides the mining rig; otherwise the power cycle becomes suicidal. For instance, a small instance on Amazon Web Services with VPN access to the rig and mPower strip works well.
+watchclay has been tested with Claymore miner versions 10.0, 9.8, and 9.7. The software is written in Python, and has been tested with Python 2.7.10 on MacOS Sierra and with Python 2.7.12 on Ubuntu 16.04. It must run somewhere besides the mining rig; otherwise the power cycle becomes suicidal. For example, a small instance on Amazon Web Services with VPN access to the rig and mPower strip works well.
 
 Configuration
 --------
